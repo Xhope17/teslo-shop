@@ -1,0 +1,15 @@
+<h1 class="text-3xl font-bold font-family-montserrat">Todos los productos</h1>
+
+<h2 class="text-xl mb-5">Para todos los gustos</h2>
+
+<div
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3"
+>
+  <!-- if para traer todos los productos, en este caso lo trae de productsResource porque es quien tiene el get-->
+  @for (product of productsResource.value()?.products ?? []; track $index) {
+    <!-- Le manda un valor a product-card -->
+    <product-card [product]="product" />
+  } @empty {
+    <p>No hay productos</p>
+  }
+</div>
